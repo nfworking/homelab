@@ -1,0 +1,38 @@
+volumes:
+  influxdb-data:
+
+networks:
+  frontend:
+    external: true
+
+services:
+  influxdb:
+    container_name: influxdb
+    image: docker.io/library/influxdb:2.7.12-alpine
+    ports: 
+      - "8086:8086"
+    volumes:
+      - influxdb-data:/var/lib/influxdb2
+      - /etc/influxdb2:/etc/influxdb2
+      # (Optional) when using certificate
+      # - /etc/ssl/cert.pem/:/etc/ssl/cert.pem
+      # - /etc/ssl/cert-key.pem/:/etc/ssl/cert-key.pem
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=svradmin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=ridealong
+      - DOCKER_INFLUXDB_INIT_ORG=homelaborg
+      - DOCKER_INFLUXDB_INIT_BUCKET=proxmox
+      # - DOCKER_INFLUXDB_INIT_RETENTION=1w
+      # - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=my-super-secret-auth-token
+    labels:
+      - traefik.enable=true
+      - traefik.http.services.influxdb.loadbalancer.server.port=8086
+      - traefik.http.services.influxdb.loadbalancer.server.scheme=http
+      - traefik.http.routers.influxdb-https.entrypoints=websecure
+      - traefik.http.routers.influxdb-https.rule=Host(`influxdb.lurking.site`)
+      - traefik.http.routers.influxdb-https.tls=true
+      - traefik.http.routers.influxdb-https.tls.certresolver=cloudflare
+    networks:
+      - frontend
+    restart: unless-stopped
