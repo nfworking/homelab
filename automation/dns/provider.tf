@@ -10,13 +10,13 @@ terraform {
 provider "dns" {
     update {
         server        = "172.20.0.254"
-        key_name      = "dns_key_secret."
+        key_name      = "tsig-key."
         key_algorithm = "hmac-sha256"
-        key_secret    = var.dns_key_secret
+        key_secret    = var.tsig_key
     }
 }
 
-variable "dns_key_secret" {
+variable "tsig_key" {
     description = "DNS TSIG key secret"
     type        = string
     sensitive   = true
