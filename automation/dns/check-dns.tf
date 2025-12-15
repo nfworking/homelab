@@ -1,6 +1,6 @@
 resource "dns_a_record_set" "admin" {
-    zone      = "home.lurking.site"
-    name      = "admin"
+    zone      = "lurking.site."
+    name      = "admin.home"
     addresses = ["172.20.0.254"]
     ttl       = 300
 }
