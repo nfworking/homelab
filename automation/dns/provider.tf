@@ -10,7 +10,7 @@ terraform {
 provider "dns" {
     update {
         server        = "172.20.0.254"
-        key_name      = "dns_key_secret"
+        key_name      = "dns_key_secret."
         key_algorithm = "hmac-sha256"
         key_secret    = var.dns_key_secret
     }
