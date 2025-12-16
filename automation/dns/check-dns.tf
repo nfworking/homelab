@@ -18,3 +18,11 @@ resource "dns_a_record_set" "proxy" {
     addresses = ["172.20.0.254"]
     ttl       = 300
 }
+
+resource "dns_a_record_set" "automation" {
+    zone      = "lurking.site."
+    name      = "automate.home"
+    addresses = ["172.20.0.254"]
+    ttl       = 300
+}
+
