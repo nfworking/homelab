@@ -11,3 +11,10 @@ resource "dns_a_record_set" "adminhome" {
     addresses = ["172.20.0.254"]
     ttl       = 300
 }
+
+resource "dns_a_record_set" "proxy" {
+    zone      = "lurking.site."
+    name      = "proxy.home"
+    addresses = ["172.20.0.254"]
+    ttl       = 300
+}
