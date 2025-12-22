@@ -1,0 +1,25 @@
+$ORIGIN .
+$TTL 172800	; 2 days
+lurking.site		IN SOA	ns.lurking.site. svradmin.users.lurking.site. (
+				2024060108 ; serial
+				43200      ; refresh (12 hours)
+				900        ; retry (15 minutes)
+				1814400    ; expire (3 weeks)
+				7200       ; minimum (2 hours)
+				)
+			NS	ns.lurking.site.
+$ORIGIN lurking.site.
+$TTL 300	; 5 minutes
+admin			A	172.20.0.254
+$ORIGIN home.lurking.site.
+admin			A	172.20.0.254
+automate		A	172.20.0.254
+mail			A	172.20.0.254
+pro			A	172.20.0.254
+$ORIGIN pro.home.lurking.site.
+api			A	172.20.0.254
+$ORIGIN home.lurking.site.
+proxy			A	172.20.0.254
+$ORIGIN lurking.site.
+$TTL 172800	; 2 days
+ns			A	172.20.0.254

@@ -1,0 +1,31 @@
+# To see all available options, please visit the docs:
+# https://docs.pangolin.net/
+
+gerbil:
+    start_port: 51820
+    base_endpoint: "proxy.home.lurking.site"
+
+app:
+    dashboard_url: "https://proxy.home.lurking.site"
+    log_level: "info"
+    telemetry:
+        anonymous_usage: true
+
+domains:
+    domain1:
+        base_domain: "lurking.site"
+
+server:
+    secret: "Q9dmoUhSRtsv8Yv6mSpYpuGNlLVyqNtg"
+    cors:
+        origins: ["https://proxy.home.lurking.site"]
+        methods: ["GET", "POST", "PUT", "DELETE", "PATCH"]
+        allowed_headers: ["X-CSRF-Token", "Content-Type"]
+        credentials: false
+    
+
+flags:
+    require_email_verification: false
+    disable_signup_without_invite: true
+    disable_user_create_org: false
+    allow_raw_resources: true
