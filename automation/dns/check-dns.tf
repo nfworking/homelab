@@ -46,3 +46,17 @@ resource "dns_a_record_set" "pro_api" {
     addresses = ["172.20.0.254"]
     ttl       = 300
 }
+
+resource "dns_a_record_set" "board" {
+    zone      = "lurking.site."
+    name      = "board.home"
+    addresses = ["172.20.0.254"]
+    ttl       = 300
+}
+
+resource "dns_a_record_set" "container" {
+    zone      = "lurking.site."
+    name      = "container.home"
+    addresses = ["172.20.0.254"]
+    ttl       = 300
+}
