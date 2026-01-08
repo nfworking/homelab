@@ -60,3 +60,10 @@ resource "dns_a_record_set" "container" {
     addresses = ["172.20.0.254"]
     ttl       = 300
 }
+
+resource "dns_a_record_set" "home" {
+    zone      = "lurking.site."
+    name      = "home"
+    addresses = ["172.20.0.254"]
+    ttl       = 300
+}
