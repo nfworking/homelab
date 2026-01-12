@@ -67,3 +67,10 @@ resource "dns_a_record_set" "home" {
     addresses = ["172.20.0.254"]
     ttl       = 300
 }
+
+resource "dns_a_record_set" "gitlab" {
+    zone      = "lurking.site."
+    name      = "blackice.home"
+    addresses = ["172.20.0.254"]
+    ttl       = 300
+}
