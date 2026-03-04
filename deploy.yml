@@ -1,5 +1,5 @@
 - name: Deploy Docker Compose to LXCs
-  hosts: lxcs
+  hosts: 172.20.0.24
   become: true
 
   tasks:
