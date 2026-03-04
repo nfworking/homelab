@@ -1,0 +1,33 @@
+- name: Deploy Docker Compose to LXCs
+  hosts: lxcs
+  become: true
+
+  tasks:
+
+    - name: Install required packages
+      apt:
+        name:
+          - curl
+          - ca-certificates
+          - gnupg
+        state: present
+        update_cache: yes
+
+    - name: Install Docker if not installed
+      shell: |
+        if ! command -v docker &> /dev/null; then
+          curl -fsSL https://get.docker.com | sh
+        fi
+      args:
+        executable: /bin/bash
+
+    - name: Create app directory
+      file:
+        path: /opt/alloy
+        state: directory
+
+    - name: Execute remote deployment script
+      shell: |
+        curl -fsSL https://raw.githubusercontent.com/nfworking/homelab/metrics-auto/install-metrics.sh | bash
+      args:
+        executable: /bin/bash
