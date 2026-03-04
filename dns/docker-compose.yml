@@ -1,0 +1,11 @@
+services:
+  bind9:
+    container_name: dns-prod-01
+    image: ubuntu/bind9:latest
+    environment:
+      - BIND9_USER=root
+      - TZ=Australia/Brisbane
+    volumes:
+      - ./config/:/etc/bind:rw
+    network_mode: host
+    restart: unless-stopped

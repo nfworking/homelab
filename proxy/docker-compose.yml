@@ -1,7 +1,7 @@
 name: pangolin
 services:
   pangolin:
-    image: docker.io/fosrl/pangolin:1.12.2
+    image: docker.io/fosrl/pangolin:latest
     container_name: pangolin
     restart: unless-stopped
     volumes:
@@ -11,6 +11,8 @@ services:
       interval: "10s"
       timeout: "10s"
       retries: 15
+    dns:
+      - 172.20.0.15
 
   traefik:
     image: docker.io/traefik:v3.5

@@ -15,12 +15,18 @@ $ORIGIN home.lurking.site.
 admin			A	172.20.0.254
 automate		A	172.20.0.254
 mail			A	172.20.0.254
-view			A.  172.20.0.5
 pro			A	172.20.0.254
+view			A   172.20.0.3
 $ORIGIN pro.home.lurking.site.
 api			A	172.20.0.254
 $ORIGIN home.lurking.site.
 proxy			A	172.20.0.3
+auth                    A       172.20.0.3
+test                    A       172.20.0.7
+backup                  A       172.20.0.3
+docs			A	172.20.0.3
+prox			A	172.20.0.5
+pvescript		A	172.20.0.3
 $ORIGIN lurking.site.
 $TTL 172800	; 2 days
 ns			A	172.20.0.3
