@@ -4,7 +4,7 @@ set -e
 # Variables
 REPO="git@github.com:nfworking/homelab.git"
 BRANCH="remote-config"
-FOLDER="remote-config/alloy"
+FOLDER="alloy"
 INSTALL_DIR="/opt/alloy"
 TMP_DIR="/tmp/alloy_checkout"
 
