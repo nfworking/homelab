@@ -11,7 +11,7 @@
 
     - name: Copy SSH private key
       copy:
-        src: /root/.ssh/id_rsa
+        src: /root/id_rsa
         dest: /root/.ssh/id_rsa
         owner: root
         group: root
